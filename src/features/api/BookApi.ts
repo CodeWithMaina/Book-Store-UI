@@ -35,7 +35,7 @@ export const bookApi = createApi({
         //Updating Book
         updateBook: builder.mutation({
             query: ({ bookId, ...updateBookPayload }) => ({
-                url: `books/${bookId}`,
+                url: `book/${bookId}`,
                 method: 'PUT',
                 body: updateBookPayload
             }),
