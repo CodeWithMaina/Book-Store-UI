@@ -1,0 +1,389 @@
+// Book-Inspired Modern UI Styles
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f3e9;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  padding: 2rem 1rem;
+  color: #3c2e26;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(139, 117, 94, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(101, 67, 33, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+h3 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #654321;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(101, 67, 33, 0.1);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #d2691e;
+    border-radius: 2px;
+  }
+}
+
+.book-form {
+  background-color: #faf8f3;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 
+    0 8px 32px rgba(101, 67, 33, 0.08),
+    0 2px 8px rgba(101, 67, 33, 0.04);
+  border: 2px solid #e8dcc0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  max-width: 650px;
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #8b7355;
+    border-radius: 12px 12px 0 0;
+  }
+
+  input {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid #d4c4a8;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    outline: none;
+    color: #3c2e26;
+
+    &::placeholder {
+      color: #8b7355;
+      font-style: italic;
+    }
+
+    &:focus {
+      border-color: #654321;
+      box-shadow: 0 0 0 3px rgba(101, 67, 33, 0.1);
+      background-color: #fffef9;
+    }
+
+    &:hover {
+      border-color: #8b7355;
+      background-color: #fffef9;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: #a0522d;
+      box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.1);
+    }
+  }
+
+  button {
+    padding: 16px 32px;
+    background-color: #654321;
+    color: #faf8f3;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(101, 67, 33, 0.2);
+    font-family: 'Georgia', serif;
+    min-width: 140px;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background-color: #8b4513;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(101, 67, 33, 0.3);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(101, 67, 33, 0.2);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  span {
+    color: #a0522d;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 4px;
+    display: block;
+    width: 100%;
+  }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  font-size: 18px;
+  color: #654321;
+  font-weight: 500;
+  background-color: #faf8f3;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(101, 67, 33, 0.1);
+
+  &::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid #e8dcc0;
+    border-top: 3px solid #654321;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 12px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.book-table {
+  width: 100%;
+  max-width: 1100px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #faf8f3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 12px 40px rgba(101, 67, 33, 0.12),
+    0 4px 16px rgba(101, 67, 33, 0.06);
+  border: 2px solid #e8dcc0;
+
+  thead {
+    background-color: #654321;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #8b4513;
+    }
+    
+    td {
+      padding: 24px 28px;
+      color: #faf8f3;
+      font-weight: 600;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      font-family: 'Georgia', serif;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 20px 28px;
+      color: #3c2e26;
+      font-size: 16px;
+      border-bottom: 1px solid #e8dcc0;
+      transition: all 0.2s ease;
+      font-family: 'Georgia', serif;
+      
+      &:first-child {
+        font-weight: 700;
+        color: #654321;
+        background-color: #f5f1e8;
+      }
+    }
+
+    tr {
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background-color: #f5f1e8;
+        
+        td:first-child {
+          background-color: #ede7d3;
+        }
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.3px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    // Delete button
+    &:first-child {
+      background-color: #a0522d;
+      color: #faf8f3;
+      box-shadow: 0 2px 8px rgba(160, 82, 45, 0.2);
+
+      &:hover {
+        background-color: #8b4513;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(160, 82, 45, 0.3);
+      }
+    }
+
+    // Update button
+    &:last-child {
+      background-color: #8b7355;
+      color: #faf8f3;
+      box-shadow: 0 2px 8px rgba(139, 115, 85, 0.2);
+
+      &:hover {
+        background-color: #6d5a47;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Empty state
+div:not(.loading):not(.app):not(.book-form) {
+  color: #654321;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 3rem;
+  background-color: #faf8f3;
+  border-radius: 12px;
+  border: 2px solid #e8dcc0;
+  box-shadow: 0 4px 16px rgba(101, 67, 33, 0.1);
+  font-style: italic;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .book-form {
+    padding: 1.8rem;
+    
+    input {
+      min-width: 100%;
+    }
+    
+    button {
+      min-width: 100%;
+    }
+  }
+
+  .book-table {
+    font-size: 14px;
+    
+    thead td,
+    tbody td {
+      padding: 16px 14px;
+    }
+    
+    button {
+      padding: 8px 14px;
+      font-size: 12px;
+      margin-bottom: 6px;
+      display: block;
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}
+
+// Additional book-themed decorative elements
+.book-form::after {
+  content: '📚';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #faf8f3;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid #e8dcc0;
+}
+
+// Page corner effect
+.book-table::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: 
+    linear-gradient(-45deg, transparent 46%, #d4c4a8 46%, #d4c4a8 54%, transparent 54%);
+  z-index: 1;
+}
+
